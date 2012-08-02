@@ -23,13 +23,13 @@ sys.path.append('../')
 
 import logging
 import traceback as tb
-import suds.metrics as metrics
+import suds04.metrics as metrics
 from tests import *
-from suds import WebFault
-from suds.client import Client
-from suds.sudsobject import Object
-from suds.transport.https import HttpAuthenticated
-from suds.plugin import *
+from suds04 import WebFault
+from suds04.client import Client
+from suds04.sudsobject import Object
+from suds04.transport.https import HttpAuthenticated
+from suds04.plugin import *
 
 errors = 0
 

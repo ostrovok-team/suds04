@@ -20,11 +20,11 @@ sys.path.append('../')
 import logging
 import traceback as tb
 import urllib2
-import suds.metrics as metrics
+import suds04.metrics as metrics
 import traceback as tb
 from tests import *
-from suds import WebFault
-from suds.client import Client
+from suds04 import WebFault
+from suds04.client import Client
 
 errors = 0
 

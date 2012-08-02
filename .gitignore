@@ -1,2 +1,4 @@
 *.pyc
+*.sw[pon]
+.ropeproject
 suds.egg-info

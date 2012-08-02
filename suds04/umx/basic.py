@@ -1,5 +1,3 @@
-#!/usr/bin/python
-#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
 # published by the Free Software Foundation; either version 3 of the 
@@ -16,18 +14,28 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 # written by: Jeff Ortel ( jortel@redhat.com )
 
-import sys
-import suds04
-from setuptools import setup, find_packages
+"""
+Provides basic unmarshaller classes.
+"""
 
-setup(
-    name="suds04",
-    version=suds04.__version__,
-    description="Lightweight SOAP client",
-    author="Jeff Ortel",
-    author_email="jortel@redhat.com",
-    maintainer="Jeff Ortel",
-    maintainer_email="jortel@redhat.com",
-    packages=find_packages(exclude=['tests']),
-    url="https://fedorahosted.org/suds04",
-)
+from logging import getLogger
+from suds04 import *
+from suds04.umx import *
+from suds04.umx.core import Core
+
+
+class Basic(Core):
+    """
+    A object builder (unmarshaller).
+    """
+        
+    def process(self, node):
+        """
+        Process an object graph representation of the xml I{node}.
+        @param node: An XML tree.
+        @type node: L{sax.element.Element}
+        @return: A suds object.
+        @rtype: L{Object}
+        """
+        content = Content(node)
+        return Core.process(self, content)
