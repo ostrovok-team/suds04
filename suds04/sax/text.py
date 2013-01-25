@@ -81,14 +81,6 @@ class Text(unicode):
             result.escaped = ( self.escaped or other.escaped )
         return result
     
-    def __repr__(self):
-        s = [self]
-        if self.lang is not None:
-            s.append(' [%s]' % self.lang)
-        if self.escaped:
-            s.append(' <escaped>')
-        return ''.join(s)
-    
     def __getstate__(self):
         state = {}
         for k in self.__slots__:
